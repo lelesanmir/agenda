@@ -1,0 +1,35 @@
+ body {
+	 
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            height: 100vh;
+            font-family: Arial, sans-serif; /* Adicionando uma fonte padrão para o corpo do documento */
+        }
+
+        .text-info {
+            color: blue;
+            font-size: 16px;
+        }
+
+        .form-control {
+            font-size: 16px;
+            color: blue;
+        }
+
+        /* Estilos para a seção de login */
+        #login .container #login-row #login-column #login-box {
+            margin-top: 120px;
+            max-width: 600px;
+            height: 360px;
+            border: 1px solid #9C9C9C;
+            background-color: #EAEAEA;
+        }
+
+        #login .container #login-row #login-column #login-box #login-form {
+            padding: 20px;
+        }
+
+        #login .container #login-row #login-column #login-box #login-form #register-link {
+            margin-top: -85px;
+        }

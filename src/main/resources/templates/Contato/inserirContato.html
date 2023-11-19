@@ -1,0 +1,104 @@
+<html lang="pt-br" xsi=schemaLocation="http://www.thymeleaf.org">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link type='text/css' rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+	<!------ Include the above in your HEAD tag ---------->
+	<title>Inserir Contato</title>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+
+	<div class="collapse navbar-collapse" id="textoNavbar">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" th:href="@{home}"><i class="fa fa-home"></i> Home <span class="sr-only">(Página
+						atual)</span></a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toogle" id="navdardrop" data-toggle="dropdown">
+					<i class="fa fa-user"></i>Contato</a>
+				<div class="nav-item dropdown-menu">
+					<a class="dropdown-item" th:href="@{listarExcluirContato}"><i class="fa fa-trash">Excluir
+							Contato</i></a>
+					<a class="dropdown-item" th:href="@{listarAlterarContatos}"><i class="fa fa-graduation-cap">Editar
+							Contato</i></a>
+					<a class="dropdown-item" th:href="@{listarContatos}"><i class="fa fa-search">Listar Contatos</i></a>
+				</div>
+			</li>
+
+		</ul>
+		<span class="navbar-text">
+			<div class="collapse navbar-collapse" id="textoNavbar">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/sair}"><i class='fa fa-times'></i> Sair</a>
+					</li>
+				</ul>
+			</div>
+		</span>
+	</div>
+</nav>
+
+<body>
+	<h3 class="text-center text-white pt-5">Formulário de Cadastro</h3>
+	<div class="container">
+		<div id="login-row" class="row justify-content-center align-items-center">
+			<div id="login-column" class="col-md-6">
+				<div id="login-box" class="col-md-12">
+
+					<form id="cadastro-form" class="form" method="post" th:object="${contato}" action="inserirContato">
+						<h3 class="text-center text-info">Crie seu contato no sistema</h3>
+
+						<div class="form-group">
+							<label for="nome" class="text-info">Nome:</label><br>
+							<input type="text" name="nome" id="nome" th:field="*{nome}" placeholder="Nome"
+								class="form-control">
+						</div>
+						<div class="form-group">
+							<div class="col-sm12 offset-sm-0">
+								<label for="telefone">Telefone</label>
+								<input type="tel" maxlength="11" pattern="[0-9]{10,11}" name="telefone" id="telefone"
+									class="form-control" placeholder="Telefone (apenas números)" required />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="text-info">Email:</label><br>
+							<input type="email" name="email" id="email" th:field="*{email}" placeholder="Email"
+								class="form-control">
+						</div>
+
+						<div class="form-group">
+							<label for="adicionais" class="text-info">Adicionais:</label><br>
+							<input type="text" name="adicionais" id="adicionais" th:field="*{adicionais}"
+								placeholder="Adicionais" class="form-control"><br>
+						</div>
+						<div class="form-group">
+							<div class="col-md-8 offset-md-5">
+								<input type="submit" value="Salvar" class="btn btn-secondary" name="Cadastrar">
+							</div>
+						</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+
+	<footer class="bg-dark text-center text-lg-start"
+		style="border-top: 3px solid white; padding: 30px 0; margin-top: 30px;">
+		<div class="container" style="color: #fff; font-weight: bold;">
+			© AGENDA CONTATOS
+		</div>
+	</footer>
+
+</body>
+
+</html>

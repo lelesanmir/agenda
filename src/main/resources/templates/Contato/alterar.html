@@ -1,0 +1,102 @@
+<html lang="pt-br" xsi=schemaLocation="http://www.thymeleaf.org">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<title>Alterar Contato</title>
+
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+			<div class="collapse navbar-collapse" id="textoNavbar">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/home"><i class="fa fa-home"></i> Home <span class="sr-only">(Página
+								atual)</span></a>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toogle" id="navdardrop" data-toggle="dropdown">
+							<i class="fa fa-user"></i>Contato</a>
+						<div class="nav-item dropdown-menu">
+							<a class="dropdown-item" th:href="@{/inserirContato}"><i
+									class="fa fa-graduation-cap">Cadastrar Contato</i></a>
+							<a class="dropdown-item" th:href="@{/listarExcluirContato}"><i class="fa fa-trash">Excluir
+									Contato</i></a>
+							<a class="dropdown-item" th:href="@{/listarAlterarContatos}"><i
+									class="fa fa-graduation-cap">Editar Contato</i></a>
+							<a class="dropdown-item" th:href="@{/listarContatos}"><i class="fa fa-search">Listar
+									Contatos</i></a>
+						</div>
+					</li>
+				</ul>
+				<span class="navbar-text">
+					<div class="collapse navbar-collapse" id="textoNavbar">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item">
+								<a class="nav-link" th:href="@{sair}"><i class="fa fa-times"></i> Sair</a>
+							</li>
+						</ul>
+					</div>
+				</span>
+			</div>
+		</nav>
+	</header>
+	<h2>Alterar Contato</h2>
+	<form action="/alterarContato" th:object="${contato}" method="POST" name="formulario">
+		<input type="hidden" name="id" id="id" class="form-control" th:field="*{id}" />
+		<div class="col-md-6 offset-md-3">
+			<div class="alert alert-danger" role="alert" th:if="${msg}">
+				<strong th:text="${msg}"></strong>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-6 offset-md-3">
+				<label>Nome</label>
+				<input type="text" name="nome" id="nome" class="form-control" placeholder="Digite o Nome"
+					th:field="*{nome}" required />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-6 offset-md-3">
+				<label for="telefone">Telefone</label>
+				<input type="tel" maxlength="11" pattern="[0-9]{10,11}" name="telefone" id="telefone"
+					class="form-control" placeholder="Telefone (apenas números)" required />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-6 offset-md-3">
+				<label for="email" class="text-info">Email:</label><br>
+				<input type="email" name="email" id="email" th:field="*{email}" placeholder="Email"
+					class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-6 offset-md-3">
+				<label for="adicionais" class="text-info">Adicionais:</label><br>
+				<input type="text" name="adicionais" id="adicionais" th:field="*{adicionais}" placeholder="Adicionais"
+					class="form-control"><br>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-8 offset-md-5">
+				<input type="submit" value="Salvar" class="btn btn-secondary" name="Atualizar">
+			</div>
+		</div>
+	</form>
+
+	<footer class="bg-dark text-center text-lg-start"
+		style="border-top: 3px solid white; padding: 30px 0; margin-top: 30px;">
+		<div class="container" style="color: #fff; font-weight: bold;">
+			© AGENDA CONTATOS
+		</div>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<html lang="pt-br" xsi=schemaLocation="http://www.thymeleaf.org">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link type='text/css' rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+	<!------ Include the above in your HEAD tag ---------->
+	<title>Listar Contato</title>
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+			<div class="collapse navbar-collapse" id="textoNavbar">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" th:href="@{home}"><i class="fa fa-home"></i> Home <span
+								class="sr-only">(Página
+								atual)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toogle" id="navdardrop" data-toggle="dropdown">
+							<i class="fa fa-user"></i>Contato</a>
+						<div class="nav-item dropdown-menu">
+							<a class="dropdown-item" th:href="@{/inserirContato}"><i class="fa fa-graduation-cap">Cadastrar Contato</i></a>
+							<a class="dropdown-item" th:href="@{/listarExcluirContato}"><i class="fa fa-trash">Excluir Contato</i></a>
+							<a class="dropdown-item" th:href="@{listarAlterarContatos}"><i class="fa fa-pencil-square">Editar
+							Contato</i></a>
+						</div>
+					</li>
+				</ul>
+				<span class="navbar-text">
+					<div class="collapse navbar-collapse" id="textoNavbar">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item">
+								<a class="nav-link" th:href="@{sair}"><i class="fa fa-times"></i> Sair</a>
+							</li>
+						</ul>
+					</div>
+				</span>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container">
+		<h2>Contatos Adicionados</h2>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th class="text-center" scope="col">Nome</th>
+					<th class="text-center" scope="col">Telefone</th>
+					<th class="text-center" scope="col">Email</th>
+					<th class="text-center" scope="col">Adicionais</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr scope="row" th:each="contato: ${contatos}">
+					<td class="text-center" th:text="${contato.nome}"></td>
+					<td class="text-center" th:text="${contato.telefone}"></td>
+					<td class="text-center" th:text="${contato.email}"></td>
+					<td class="text-center" th:text="${contato.adicionais}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+	<footer class="bg-dark text-center text-lg-start"
+		style="border-top: 3px solid white; padding: 30px 0; margin-top: 30px;">
+		<div class="container" style="color: #fff; font-weight: bold;">
+			© AGENDA CONTATOS
+		</div>
+	</footer>
+</body>
+
+</html>
